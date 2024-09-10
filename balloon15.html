@@ -1,0 +1,49 @@
+<p>🎈</p>
+
+<script>
+  let balloonSize = 16;
+  let balloonSizePct = 0;
+  let balloonPopped = false;
+
+  const balloonElement = document.querySelector("p");
+  
+  document.addEventListener("keydown", (event) => {
+  	event.preventDefault();
+  
+  	if (balloonPopped) {
+  		return;
+  	}
+  
+  	if (event.key === "ArrowUp") {
+   		let size = increaseSize()
+      
+      if (balloonSizePct >= 100) {
+    	  return popBalloon()
+      }
+    
+   	balloonElement.style.fontSize = `${size}px`   
+    
+    }
+    
+    if (event.key === "ArrowDown") {
+ 	    let size = decreaseSize()
+  
+      balloonElement.style.fontSize = `${size}px`
+    }
+  });  
+ 
+  function increaseSize() {
+    balloonSizePct += 10
+    return (balloonSize = balloonSize * 1.1);
+  }
+
+  function decreaseSize() {
+    balloonSizePct -= 10
+    return (balloonSize = balloonSize * 0.9);
+  }
+
+  function popBalloon() {
+    balloonElement.innerHTML = "💥";
+    balloonPopped = true;
+  }
+</script>
