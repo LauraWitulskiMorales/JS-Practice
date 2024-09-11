@@ -1,5 +1,7 @@
 <p>🎈</p>
 
+<button onclick="reset()"> Reset </button>
+
 <script>
   let balloonSize = 16;
   let balloonSizePct = 0;
@@ -46,4 +48,12 @@
     balloonElement.innerHTML = "💥";
     balloonPopped = true;
   }
+
+  function reset() {
+  	let balloonSize = 16;
+ 	  let balloonSizePct = 0;
+  	let balloonPopped = false;
+    balloonElement.innerHTML = "🎈";
+    balloonElement.style.fontSize = "16px";
+  } 
 </script>
